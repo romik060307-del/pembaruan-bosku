@@ -1,0 +1,28 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.rk.ohlisocial'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.rk.ohlisocial'
+        minSdk 23
+        targetSdk 34
+        versionCode 10
+        versionName '1.0.9'
+        // Fallback used if the remote configuration cannot be reached.
+        buildConfigField 'String', 'OHLI_URL', '"https://information-nsw-rug-gallery.trycloudflare.com/"'
+        // Set this one time after deploying the companion config folder to Netlify.
+        buildConfigField 'String', 'SERVER_CONFIG_URL', '"https://ohlisocial.netlify.app/server.json"'
+    }
+
+    buildFeatures { buildConfig true }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        debug { minifyEnabled false }
+        release { minifyEnabled false }
+    }
+}
